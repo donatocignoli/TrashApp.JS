@@ -57,23 +57,32 @@ const nivelesImpacto = [
     } else {
       // Agregar la basura ingresada al arreglo de basuras
       basuras.push({ tipo: tipoBasura, cantidad: cantidadBasura });
+        
+     // Calcular el impacto ambiental de la basura ingresada y actualizar el impacto ambiental total
+     for (let i = 0; i < tiposBasura.length; i++) {
+      if (tiposBasura[i].tipo.toLowerCase() === tipoBasura.toLowerCase()) {
+        impactoBasura[i] += cantidadBasura * tiposBasura[i].nivelImpacto;
+        break;
+      }
     }
-  
+  }
+
     // Preguntar al usuario si desea continuar ingresando 
     continuar = confirm('¿Desea ingresar otro desperdicio?');
   }
+    // Calcular el impacto ambiental total sumando el impacto ambiental de cada tipo de basura
+    let impactoAmbientalTotal = 0;
+    for (let i = 0; i < impactoBasura.length; i++) {
+      impactoAmbientalTotal += impactoBasura[i];
+}
   
-    // Calcular el impacto ambiental total sumando el impacto ambiental de cada basura
-    //   let impactoAmbientalTotal = 0;
-    //   for (let i = 0; i < basuras.length; i++) {
-    //     // Buscar el nivel de impacto correspondiente al tipo de basura
-    //     const nivelImpacto = sdfbsfbsjfd nsj f aaaaaaaaaaaa
-    //   }
-  
-    // Buscar la descripción correspondiente al nivel de impacto total calculado
-  
+// Buscar la descripción correspondiente al nivel de impacto total calculado
+    // let descripcionImpacto = '';
+    // for (let i = 0; i < nivelesImpacto.length; i++) {
+    //   if (impactoAmbientalTotal <= i + 1) {
+    //     descripcionImpact
   
     // Mostrar el resultado al usuario
-    console.log('El impacto ambiental total generado por las basuras ingresadas es de ${impactoAmbientalTotal} puntos. Esto corresponde a un nivel de impacto ${descripcionImpacto}');
+    console.log(`El impacto ambiental total generado por las basuras ingresadas es de ${impactoAmbientalTotal} puntos. Esto corresponde a un nivel de impacto ${descripcionImpacto}`);
     // Mostrar dónde debe arrojarse cada desperdicio
-    console.log('Sus desperdicios deben descartarse de la siguiente manera: ${}');
+    // console.log(`Sus desperdicios deben descartarse de la siguiente manera: ${}`);
